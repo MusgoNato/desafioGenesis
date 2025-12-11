@@ -9,4 +9,12 @@ use Illuminate\Notifications\Notifiable;
 class Veiculo extends Model
 {
     //
+    protected $fillable = [
+        'modelo',
+        'ano',
+        'data_aquisicao',
+        'kms_rodados',
+        'renavam',
+        'placa'
+    ];
 }

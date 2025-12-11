@@ -16,7 +16,13 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite o modelo do veículo"
+                value="{{ old('modelo') }}"
             >
+            <span class="label-text-alt text-error">
+                @error('modelo')
+                    {{ $message }}
+                @enderror
+            </span>
         </div>
 
         <!-- Ano -->
@@ -31,7 +37,13 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite o ano do veículo"
+                value="{{ old('ano') }}"
             >
+            <span class="label-text-alt text-error">
+                @error('ano')
+                    {{ $message }}
+                @enderror
+            </span>
         </div>
 
         <!-- Data de aquisição -->
@@ -43,7 +55,13 @@
                 type="date" 
                 required 
                 class="input input-bordered w-full"
+                value="{{ old('data_aquisicao') }}"
             >
+            <span class="label-text-alt text-error">
+                @error('data_aquisicao')
+                    {{ $message }}
+                @enderror
+            </span>
         </div>
 
         <!-- KMs rodados -->
@@ -57,7 +75,13 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="KMs rodados no veículo"
+                value="{{ old('kms_rodados') }}"
             >
+            <span class="label-text-alt text-error">
+                @error('kms_rodados')
+                    {{ $message }}
+                @enderror
+            </span>
         </div>
 
         <!-- Renavam -->
@@ -71,7 +95,13 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite o Renavam"
+                value="{{ old('renavam') }}"
             >
+            <span class="label-text-alt text-error">
+                @error('renavam')
+                    {{ $message }}
+                @enderror
+            </span>
         </div>
 
         <!-- Placa -->
@@ -85,12 +115,28 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite a placa do veículo"
+                value="{{ old('placa') }}"
             >
+        
+            <span class="label-text-alt text-error">
+                @error('placa')
+                    {{ $message }}
+                @enderror
+            </span>
         </div>
 
-        <!-- Botão -->
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary w-full">Cadastrar Veículo</button>
+        <div class="flex gap-3">
+            <button 
+                type="submit" 
+                class="btn btn-primary grow"
+            >
+                Cadastrar
+            </button>
+
+            <a class="btn bg-red-500 text-white">
+                Cancelar
+            </a>
         </div>
+
     </form>
 </div>
