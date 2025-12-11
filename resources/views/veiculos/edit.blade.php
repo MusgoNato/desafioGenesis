@@ -1,9 +1,10 @@
 <x-layout></x-layout>
 
 <div class="flex justify-center mt-10">
-    <form class="w-full max-w-xl bg-base-100 shadow-lg rounded-lg p-8" method="POST" action="{{ route('veiculos.store') }}">
+    <form class="w-full max-w-xl bg-base-100 shadow-lg rounded-lg p-8" method="POST" action="{{ route('veiculos.update', $veiculo->id) }}">
         @csrf
-        <h2 class="text-2xl font-bold mb-6 text-center">Formulário de cadastro</h2>
+        @method('PUT')
+        <h2 class="text-2xl font-bold mb-6 text-center">Edição de veículo</h2>
 
         <!-- Modelo do veículo -->
         <div class="mb-4">
@@ -16,7 +17,7 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite o modelo do veículo"
-                value="{{ old('modelo') }}"
+                value="{{ $veiculo->modelo }}"
             >
             <span class="label-text-alt text-error">
                 @error('modelo')
@@ -37,7 +38,7 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite o ano do veículo"
-                value="{{ old('ano') }}"
+                value="{{ $veiculo->ano }}"
             >
             <span class="label-text-alt text-error">
                 @error('ano')
@@ -55,7 +56,7 @@
                 type="date" 
                 required 
                 class="input input-bordered w-full"
-                value="{{ old('data_aquisicao') }}"
+                value="{{ $veiculo->data_aquisicao }}"
             >
             <span class="label-text-alt text-error">
                 @error('data_aquisicao')
@@ -75,7 +76,7 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="KMs rodados no veículo"
-                value="{{ old('kms_rodados') }}"
+                value="{{ $veiculo->kms_rodados }}"
             >
             <span class="label-text-alt text-error">
                 @error('kms_rodados')
@@ -95,7 +96,7 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite o Renavam"
-                value="{{ old('renavam') }}"
+                value="{{ $veiculo->renavam }}"
             >
             <span class="label-text-alt text-error">
                 @error('renavam')
@@ -115,7 +116,7 @@
                 required 
                 class="input input-bordered w-full"
                 placeholder="Digite a placa do veículo"
-                value="{{ old('placa') }}"
+                value="{{ $veiculo->placa }}"
             >
         
             <span class="label-text-alt text-error">
@@ -130,7 +131,7 @@
                 type="submit" 
                 class="btn btn-primary grow"
             >
-                Cadastrar
+                Finalizar edição
             </button>
 
             <a class="btn bg-red-500 text-white" href="{{ route('veiculos.index') }}">

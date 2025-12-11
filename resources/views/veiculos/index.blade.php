@@ -29,7 +29,7 @@
 
                 <!-- Redirecionamento para edição do veículo -->
                 <div class="flex justify-end gap-4">
-                    <a class="btn btn-primary" href="#">Editar</a>
+                    <a class="btn btn-primary" href="{{ route('veiculos.edit', $veiculo->id) }}">Editar</a>
 
                     <!-- Formulário para deletar um veículo -->
                     <form action="{{ route('veiculos.destroy', $veiculo->id) }}" method="POST" onclick="return confirm('Deseja realmente deletar?')">
