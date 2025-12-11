@@ -1,0 +1,96 @@
+<x-layout></x-layout>
+
+<div class="flex justify-center mt-10">
+    <form class="w-full max-w-xl bg-base-100 shadow-lg rounded-lg p-8" method="POST" action="{{ route('veiculos.store') }}">
+        @csrf
+        <h2 class="text-2xl font-bold mb-6 text-center">Formulário de cadastro</h2>
+
+        <!-- Modelo do veículo -->
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="modelo">Modelo</label>
+            <input 
+                id="modelo" 
+                name="modelo" 
+                type="text" 
+                maxlength="255" 
+                required 
+                class="input input-bordered w-full"
+                placeholder="Digite o modelo do veículo"
+            >
+        </div>
+
+        <!-- Ano -->
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="ano">Ano</label>
+            <input 
+                id="ano" 
+                name="ano" 
+                type="number" 
+                min="1900" 
+                max="2099" 
+                required 
+                class="input input-bordered w-full"
+                placeholder="Digite o ano do veículo"
+            >
+        </div>
+
+        <!-- Data de aquisição -->
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="data_aquisicao">Data de Aquisição</label>
+            <input 
+                id="data_aquisicao" 
+                name="data_aquisicao" 
+                type="date" 
+                required 
+                class="input input-bordered w-full"
+            >
+        </div>
+
+        <!-- KMs rodados -->
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="kms_rodados">KMs Rodados</label>
+            <input 
+                id="kms_rodados" 
+                name="kms_rodados" 
+                type="number" 
+                min="0" 
+                required 
+                class="input input-bordered w-full"
+                placeholder="KMs rodados no veículo"
+            >
+        </div>
+
+        <!-- Renavam -->
+        <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="renavam">Renavam</label>
+            <input 
+                id="renavam" 
+                name="renavam" 
+                type="text" 
+                maxlength="11" 
+                required 
+                class="input input-bordered w-full"
+                placeholder="Digite o Renavam"
+            >
+        </div>
+
+        <!-- Placa -->
+        <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2" for="placa">Placa</label>
+            <input 
+                id="placa" 
+                name="placa" 
+                type="text" 
+                maxlength="7" 
+                required 
+                class="input input-bordered w-full"
+                placeholder="Digite a placa do veículo"
+            >
+        </div>
+
+        <!-- Botão -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary w-full">Cadastrar Veículo</button>
+        </div>
+    </form>
+</div>
