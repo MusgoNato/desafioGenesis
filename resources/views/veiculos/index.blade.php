@@ -1,6 +1,6 @@
 <x-layout></x-layout>
 
-<!-- Cadastro de veículo -->
+<!-- Redirecionamento para criação de um veículo -->
 <div class="max-w-2xl mx-auto">
     <div class="card">
         <div class="card-body">
@@ -27,9 +27,16 @@
                     </p>
                 </div>
 
+                <!-- Redirecionamento para edição do veículo -->
                 <div class="flex justify-end gap-4">
                     <a class="btn btn-primary" href="#">Editar</a>
-                    <a class="btn bg-red-500" href="#">Deletar</a>
+
+                    <!-- Formulário para deletar um veículo -->
+                    <form action="{{ route('veiculos.destroy', $veiculo->id) }}" method="POST" onclick="return confirm('Deseja realmente deletar?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn bg-red-600">Deletar</button>
+                    </form>
                 </div>
             </div>
         @endforeach
