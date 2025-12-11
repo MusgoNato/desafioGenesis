@@ -77,7 +77,6 @@ class VeiculoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // TODO: Terminar o desenvolvimento da atualização de uma edição realizada em um veículo
         $veiculo = Veiculo::findOrFail($id);
         $veiculo->update($request->all());
         return redirect()->route('veiculos.index')->with('success', 'Veículo atualizado com sucesso!');
