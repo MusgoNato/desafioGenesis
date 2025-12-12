@@ -27,6 +27,7 @@ class StoreViagemRequest extends FormRequest
             'veiculo_id' => 'nullable|exists:veiculos,id',
             'km_inicial' => 'required|numeric',
             'inicio_viagem' => 'required|date_format:Y-m-d\TH:i',
+            'fim_viagem' => 'nullable|date_format:Y-m-d\TH:i|after_or_equal:inicio_viagem',
             'motoristas' => 'nullable|array',
             'motoristas.*' => 'exists:motoristas,id',
         ];

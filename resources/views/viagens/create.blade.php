@@ -87,6 +87,26 @@
                 @enderror
             </div>
 
+            <!-- KM Final -->
+            <div class="form-control w-full mb-4">
+                <label class="label">
+                    <span class="label-text font-medium">KM Final</span>
+                </label>
+
+                <input 
+                    type="number" 
+                    name="km_final"
+                    maxlength="100"
+                    placeholder="Insira o km final"
+                    class="input input-bordered w-full"
+                    value="{{ old('km_final') }}"
+                />
+
+                @error('km_final')
+                    <span class="text-error text-sm mt-1 block">{{ $message }}</span>
+                @enderror
+            </div>
+
             <!-- Data e hora inicial da viagem -->
             <div class="form-control w-full mb-4">
                 <label class="label">
@@ -102,6 +122,24 @@
                 />
 
                 @error('inicio_viagem')
+                    <span class="text-error text-sm mt-1 block">{{ $message }}</span>
+                @enderror
+            </div>
+            
+            <!-- Data e hora do fim da viagem -->
+            <div class="form-control w-full mb-4">
+                <label class="label">
+                    <span class="label-text font-medium">Data e hora final da viagem</span>
+                </label>
+
+                <input 
+                    type="datetime-local" 
+                    name="fim_viagem"
+                    class="input input-bordered w-full"
+                    value="{{ old('fim_viagem') }}"
+                />
+
+                @error('fim_viagem')
                     <span class="text-error text-sm mt-1 block">{{ $message }}</span>
                 @enderror
             </div>
