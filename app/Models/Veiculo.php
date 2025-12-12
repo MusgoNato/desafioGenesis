@@ -15,6 +15,6 @@ class Veiculo extends Model
         'data_aquisicao',
         'kms_rodados',
         'renavam',
-        'placa'
+        'placa',
     ];
 }

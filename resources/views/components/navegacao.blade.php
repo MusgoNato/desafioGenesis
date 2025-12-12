@@ -3,7 +3,7 @@
     <div class="container">
         <div>
             <a class="btn btn-primary" href="{{ route('veiculos.index') }}">Veículos</a>
-            <a class="btn btn-primary" href="#">Motoristas</a>
+            <a class="btn btn-primary" href="{{ route('motoristas.index') }}">Motoristas</a>
             <a class="btn btn-primary" href="#">Viagens</a>
         </div>
     </div>
