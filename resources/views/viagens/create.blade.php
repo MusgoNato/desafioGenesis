@@ -29,7 +29,8 @@
                 <label class="label">
                     <span class="label-text font-semibold">Motoristas</span>
                 </label>
-                <select name="motoristas[]" multiple class="select select-bordered w-full h-40">
+
+                <select id="motoristas" name="motoristas[]" multiple>
                     @foreach ($motoristas as $motorista)
                         <option value="{{ $motorista->id }}"
                             @selected(collect(old('motoristas'))->contains($motorista->id))>
@@ -37,24 +38,24 @@
                         </option>
                     @endforeach
                 </select>
-                <label class="label">
-                    <span class="label-text-alt">Segure CTRL para selecionar múltiplos</span>
-                </label>
 
                 @error('motoristas')
                     <span class="text-error text-sm mt-1 block">{{ $message }}</span>
                 @enderror
             </div>
 
+
             <!-- Veículo -->
             <div class="form-control mb-5">
                 <label class="label">
                     <span class="label-text font-semibold">Veículo</span>
                 </label>
-                <select name="veiculo_id" class="select select-bordered w-full">
-                    <option value="">Selecione um veículo</option>
+
+                <select id="veiculo" name="veiculo_id" class="w-full">
+                    <option value=" " disabled selected></option>
                     @foreach ($veiculos as $veiculo)
-                        <option value="{{ $veiculo->id }}" {{ old('veiculo_id') == $veiculo->id ? 'selected' : ''}}>
+                        <option value="{{ $veiculo->id }}"
+                            {{ old('veiculo_id') == $veiculo->id ? 'selected' : '' }}>
                             {{ $veiculo->modelo }}
                         </option>
                     @endforeach
@@ -64,6 +65,7 @@
                     <span class="text-error text-sm mt-1 block">{{ $message }}</span>
                 @enderror
             </div>
+
 
 
             <!-- KM inicial -->
@@ -152,6 +154,23 @@
 
         </form>
     </div>
+    <script>
+        new Choices('#motoristas', {
+            removeItemButton: true,
+            searchPlaceholderValue: "Buscar...",
+            placeholderValue: "Selecione motoristas",
+            shouldSort: false,
+            placeholder: true,
+        });
 
+
+        new Choices('#veiculo', {
+            searchEnabled: true,
+            placeholderValue: "Selecione um veículo",
+            placeholder: true,
+            shouldSort: false,
+        });
+
+    </script>
 </x-layout>
 

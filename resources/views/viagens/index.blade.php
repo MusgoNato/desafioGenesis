@@ -30,7 +30,7 @@
                             <!-- Motoristas -->
                             <td class="px-4 py-3">
                                 @php
-                                    $motoristsaExibir = $viagem->motoristas->take(3);
+                                    $motoristsaExibir = $viagem->motoristas->take(2);
                                     $qtd_restante = $viagem->motoristas->count() - $motoristsaExibir->count();
                                 @endphp
 

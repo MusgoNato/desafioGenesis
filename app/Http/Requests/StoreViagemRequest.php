@@ -24,12 +24,12 @@ class StoreViagemRequest extends FormRequest
         return [
             //
             'nome_viagem' => 'required|string|max:100',
-            'veiculo_id' => 'nullable|exists:veiculos,id',
+            'veiculo_id' => 'required|exists:veiculos,id',
             'km_inicial' => 'required|numeric',
             'km_final' => 'nullable|numeric',
             'inicio_viagem' => 'required|date_format:Y-m-d\TH:i',
             'fim_viagem' => 'nullable|date_format:Y-m-d\TH:i|after_or_equal:inicio_viagem',
-            'motoristas' => 'nullable|array',
+            'motoristas' => 'required|array|min:1',
             'motoristas.*' => 'exists:motoristas,id',
         ];
     }

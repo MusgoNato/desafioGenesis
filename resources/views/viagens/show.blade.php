@@ -76,15 +76,6 @@
                 </div>
 
             </div>
-
-            <!-- Observações -->
-            @if($viagem->observacoes)
-                <div class="mt-4 text-gray-600">
-                    <span class="font-semibold">Observações:</span>
-                    <p class="mt-1">{{ $viagem->observacoes }}</p>
-                </div>
-            @endif
-
         </div>
     </div>
 </x-layout>
