@@ -17,4 +17,9 @@ class Veiculo extends Model
         'renavam',
         'placa',
     ];
+
+    public function viagens()
+    {
+        return $this->hasMany(Viagem::class);
+    }
 }

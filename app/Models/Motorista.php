@@ -12,4 +12,9 @@ class Motorista extends Model
         'data_nascimento',
         'numero_cnh',
     ];
+
+    public function viagens()
+    {
+        return $this->belongsToMany(Viagem::class, 'motorista_viagem');
+    }
 }

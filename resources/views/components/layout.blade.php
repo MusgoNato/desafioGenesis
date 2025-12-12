@@ -30,9 +30,9 @@
         <x-navegacao></x-navegacao>
 
         <!-- Conteudo da página -->
-        <div class="container">
+        <main class="flex-1 container mx-auto px-4 py-8">
             {{ $slot }}
-        </div>    
+        </main>    
     </body>
 
 </html>
