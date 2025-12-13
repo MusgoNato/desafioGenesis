@@ -24,7 +24,13 @@ class VeiculoFactory extends Factory
             'ano' => fake()->numberBetween(2000, date('Y')),
             'data_aquisicao' => fake()->date(),
             'kms_rodados' => fake()->numberBetween(0, 99999),
-            'placa' => strtoupper(fake()->unique()->bothify('???-####')),
+            'placa' => strtoupper(fake()->randomElement([
+                // Formato antigo
+                fake()->bothify('???####'),
+
+                // Formato mercosul
+                fake()->regexify('[A-Z]{3}[0-9][A-Z][0-9]{2}') 
+            ])),
             'renavam' => fake()->unique()->numerify('###########'),
         ];
     }   
