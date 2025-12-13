@@ -9,7 +9,7 @@ Sistema desenvolvido em **Laravel** para gerenciamento de veículos, motoristas 
 - PHP 8+
 - Laravel 12+
 - PostgreSQL 14+
-- TailwindCSS / DaisyUI para interface
+- TailwindCSS
 - Docker para ambiente de banco de dados
 
 ---
@@ -83,13 +83,10 @@ composer install
 npm install
 ```
 
-4. Configure o `.env`:
+4. Renomeie o arquivo `.env.example` para `.env`:
 
-```bash
-# Configure o arquivo .env para as mesmas credenciais do seu banco de dados (Neste caso o arquivo docker incluido no projeto)
+- *Obs: Caso deseje rodar o banco de dados sem ser pelo arquivo docker encontrado no projeto, insira as suas credenciais no arquivo `.env`*
 
-
-```
 
 5. Rode o banco de dados via docker
 ```bash
@@ -137,6 +134,7 @@ composer run dev
 
 ## Observações
 - Certifique-se de configurar corretamente o `.env` antes de rodar o projeto.
+- Ceritifique-se se as versões das tecnologias utilizadas estão atualizadas.
 
 ---
 
