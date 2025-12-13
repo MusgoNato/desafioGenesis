@@ -54,7 +54,7 @@ Sistema desenvolvido em **Laravel** para gerenciamento de veículos, motoristas 
 
 ## Requisitos
 
-- Docker (opcional, para banco de dados)
+- Docker e docker-compose.yml para rodar o banco de dados
 - Composer
 - PHP 8+
 - PostgreSQL 14+
@@ -86,7 +86,15 @@ npm install
 4. Configure o `.env`:
 
 ```bash
-# Configure o arquivo .env para as mesmas credenciais do seu banco de dados (Neste caso o arquivo docker incluido no projeto) 
+# Configure o arquivo .env para as mesmas credenciais do seu banco de dados (Neste caso o arquivo docker incluido no projeto)
+
+
+```
+
+5. Rode o banco de dados via docker
+```bash
+# Verifique se está na pasta do projeto onde encontra-se o arquivo docer-compose.yml e rode o comando
+docker-compose up
 ```
 
 5. Execute as migrations caso deseje popular o banco com dados aleatórios:
