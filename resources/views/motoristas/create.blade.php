@@ -2,7 +2,7 @@
     <div class="flex justify-center mt-10">
         <form class="w-full max-w-xl bg-base-100 shadow-lg rounded-lg p-8" method="POST" action="{{ route('motoristas.store') }}">
             @csrf
-            <h2 class="text-2xl font-bold mb-6 text-center">Formulário de cadastro de motorista</h2>
+            <h2 class="text-2xl font-bold mb-6 text-center">Cadastro de motorista</h2>
 
             <!-- Nome do motorista -->
             <div class="mb-4">
@@ -67,7 +67,7 @@
                     type="submit" 
                     class="btn btn-primary grow"
                 >
-                    Cadastrar
+                    Adicionar motorista
                 </button>
 
                 <a class="btn bg-red-600" href="{{ route('veiculos.index') }}">

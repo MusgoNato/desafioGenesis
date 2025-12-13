@@ -2,7 +2,7 @@
     <div class="flex justify-center mt-10">
         <form class="w-full max-w-xl bg-base-100 shadow-lg rounded-lg p-8" method="POST" action="{{ route('veiculos.store') }}">
             @csrf
-            <h2 class="text-2xl font-bold mb-6 text-center">Formulário de cadastro</h2>
+            <h2 class="text-2xl font-bold mb-6 text-center">Cadastro de veículo</h2>
 
             <!-- Modelo do veículo -->
             <div class="mb-4">
@@ -129,7 +129,7 @@
                     type="submit" 
                     class="btn btn-primary grow"
                 >
-                    Cadastrar
+                    Adicionar veículo
                 </button>
 
                 <a class="btn bg-red-600" href="{{ route('veiculos.index') }}">
