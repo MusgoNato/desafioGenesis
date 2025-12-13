@@ -33,8 +33,8 @@ class ViagemFactory extends Factory
             'veiculo_id' => Veiculo::factory(),
             'km_inicial' => $kmInicial,
             'km_final' => $kmFinal,
-            'inicio_viagem' => $inicio,
-            'fim_viagem' => $fim,
+            'inicio_viagem' => $inicio->format('Y-m-d\TH:i'),
+            'fim_viagem' => $fim ? $fim->format('Y-m-d\TH:i') : null,
         ];
     }
 }
