@@ -22,10 +22,10 @@ class MotoristaController extends Controller
             ->orWhere('numero_cnh', 'like', "%{$search}%");
         })
         ->orderBy('nome')
-        ->paginate(2)
+        ->paginate(10)
         ->withQueryString();
 
-        return view('motoristas.index', compact('motoristas'));
+        return view('motoristas.index', ['motoristas' => $motoristas]);
     }
 
     /**
@@ -88,6 +88,6 @@ class MotoristaController extends Controller
         $motorista = Motorista::findOrFail($id);
         $motorista->delete();
 
-        return redirect()->route('motoristas.index');
+        return redirect()->route('motoristas.index')->with('success', 'Motorista deletado com sucesso');
     }
 }

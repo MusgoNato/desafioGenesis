@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use function PHPUnit\Framework\returnArgument;
 
 class Viagem extends Model
 {
     //
+    use HasFactory;
     protected $table = 'viagens';
 
     protected $fillable = [

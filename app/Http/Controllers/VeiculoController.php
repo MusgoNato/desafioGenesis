@@ -25,7 +25,7 @@ class VeiculoController extends Controller
                             ->orWhere('ano', 'like', "%{$search}%");
             })
             ->latest()
-            ->paginate(2)
+            ->paginate(10)
             ->withQueryString();
 
         return view('veiculos.index', compact('veiculos'));

@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto p-6">
 
         <!-- Cabeçalho + Busca -->
-        <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center justify-between mb-4">
 
             <h1 class="text-2xl font-semibold">Viagens</h1>
 
@@ -125,11 +125,11 @@
                                 <!-- Status -->
                                 <td class="px-4 py-3">
                                     @if($viagem->fim_viagem)
-                                        <span class="badge badge-success">
+                                        <span class="badge badge-success w-full h-full flex items-center justify-center">
                                             Finalizada
                                         </span>
                                     @else
-                                        <span class="badge badge-warning">
+                                        <span class="badge badge-warning w-full h-full flex items-center justify-center">
                                             Em andamento
                                         </span>
                                     @endif

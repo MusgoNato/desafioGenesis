@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto p-6">
 
         <!-- Cabeçalho -->
-        <div class="flex justify-between mb-4">
+        <div class="flex items-center justify-between mb-4">
             <h1 class="text-2xl font-semibold">Motoristas</h1>
             <div class="flex items-center gap-3">
 
