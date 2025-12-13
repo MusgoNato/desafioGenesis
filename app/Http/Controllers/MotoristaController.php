@@ -13,9 +13,10 @@ class MotoristaController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        // Extração do tipo do input colocado na requisição da página
         $search = $request->input('search');
 
+        // Extração das informações do banco com base na busca '$search' do usuario.
         $motoristas = Motorista::when($search, function ($query, $search)
         {
             return $query->where('nome', 'like', "%{$search}%")
@@ -33,7 +34,6 @@ class MotoristaController extends Controller
      */
     public function create()
     {
-        //
         return view('motoristas.create');
     }
 
@@ -42,7 +42,6 @@ class MotoristaController extends Controller
      */
     public function store(MotoristaRequest $request)
     {
-        //
         Motorista::create($request->validated());
         return redirect()->route('motoristas.index')->with('success', 'Motorista adicionado com sucesso');
     }
@@ -52,7 +51,8 @@ class MotoristaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $motorista = Motorista::findOrFail($id);
+        return view('motoristas.show', ['motorista' => $motorista]);
     }
 
     /**
@@ -60,7 +60,6 @@ class MotoristaController extends Controller
      */
     public function edit(string $id)
     {
-        //
         $motorista = Motorista::findOrFail($id);
         
         return view('motoristas.edit', ['motorista' => $motorista]);
@@ -71,7 +70,6 @@ class MotoristaController extends Controller
      */
     public function update(MotoristaRequest $request, string $id)
     {
-        //
         $motorista = Motorista::findOrFail($id);
 
         $motorista->update($request->validated());
@@ -84,7 +82,6 @@ class MotoristaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
         $motorista = Motorista::findOrFail($id);
         $motorista->delete();
 

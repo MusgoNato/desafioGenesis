@@ -29,11 +29,17 @@ class MotoristaRequest extends FormRequest
             'data_nascimento' => [
                 'required',
                 'date',
-                'before_or_equal:' . now()->subYears(18)->format('Y-m-d'),
+                
+                // Cálculo para validação de maiores de 18 
+                'before_or_equal:' . now()->subYears(18)->format('Y-m-d'), 
             ],
             'numero_cnh' => [
                 'required',
+
+                // Deve conter exatamente 11 dígitos
                 'regex:/^\d{11}$/',
+
+                // Número da CNH deve ser único na tabela, ignorando o registro atual
                 Rule::unique('motoristas', 'numero_cnh')->ignore($id),
             ],
         ];

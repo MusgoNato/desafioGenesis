@@ -100,10 +100,10 @@
 
                                 <!-- KM -->
                                 <td class="px-4 py-3">
-                                    {{ number_format($viagem->km_inicial, 0, ',', '.') }} KM
+                                    {{ number_format($viagem->km_inicial, 0, ',', '.') }} Km
 
                                     @if($viagem->km_final)
-                                        → <strong>{{ number_format($viagem->km_final, 0, ',', '.') }} KM</strong>
+                                        → <strong>{{ number_format($viagem->km_final, 0, ',', '.') }} Km</strong>
                                     @endif
                                 </td>
 
@@ -135,7 +135,10 @@
                                     @endif
                                 </td>
 
+
                                 <!-- Ações -->
+
+                                <!-- Visualizar -->
                                 <td class="px-4 py-3 text-center">
                                     <div class="flex justify-center gap-3">
 
@@ -154,8 +157,9 @@
                                                       stroke-linejoin="round"
                                                       d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                             </svg>
-                                        </a>
+                                        </a>    
 
+                                        <!-- Botão editar -->
                                         <a href="{{ route('viagens.edit', $viagem->id) }}"
                                            class="btn btn-sm btn-ghost p-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -164,6 +168,7 @@
 
                                         </a>
 
+                                        <!-- Botao deletar -->
                                         <form method="POST"
                                               action="{{ route('viagens.destroy', $viagem->id) }}"
                                               onsubmit="return confirm('Tem certeza que deseja excluir esta viagem?')">

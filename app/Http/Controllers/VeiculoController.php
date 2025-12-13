@@ -14,7 +14,6 @@ class VeiculoController extends Controller
      */
     public function index(Request $request)
     {   
-        //
         $search = $request->input('search');
 
         $veiculos = Veiculo::when($search, function ($query, $search) 
@@ -45,7 +44,6 @@ class VeiculoController extends Controller
      */
     public function store(VeiculoRequest $request)
     {   
-        // Sucesso na criação do veículo
         Veiculo::create($request->validated());
         return redirect()->route('veiculos.index')->with('success', 'Veículo cadastrado com sucesso!');
 
@@ -57,6 +55,9 @@ class VeiculoController extends Controller
     public function show(string $id)
     {
         //
+        $veiculo = Veiculo::findOrFail($id);
+
+        return view('veiculos.show', ['veiculo' => $veiculo]);
     }
 
     /**
