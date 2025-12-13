@@ -3,7 +3,7 @@
         <form class="form" action="{{ route('viagens.update', $viagem) }}" method="POST">
             @csrf
             @method('PUT')
-            <h2 class="text-2xl font-bold mb-6 text-center">Cadastro de Viagem</h2>
+            <h2 class="text-2xl font-bold mb-6 text-center">Ediçao de Viagem</h2>
 
             <div class="form-control w-full mb-4">
                 <label class="label">
