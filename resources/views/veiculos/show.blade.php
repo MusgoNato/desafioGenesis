@@ -3,7 +3,17 @@
 
         <!-- Cabeçalho -->
         <div class="flex items-center justify-between mb-6">
-            <h1 class="text-2xl font-semibold">Detalhes do Veículo</h1>
+            <div class="flex items-center gap-3">
+                <!-- Botão Voltar -->
+                <a href="{{ route('veiculos.index') }}" class="btn bg-gray-300 hover:bg-gray-400 btn-sm flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Voltar
+                </a>
+                <h1 class="text-2xl font-semibold">Detalhes do Veículo</h1>
+            </div>
+
             <div class="flex gap-3">
                 <a href="{{ route('veiculos.edit', $veiculo->id) }}" class="btn btn-sm btn-ghost p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

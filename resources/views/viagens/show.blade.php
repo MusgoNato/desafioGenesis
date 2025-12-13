@@ -4,6 +4,13 @@
 
             <!-- Cabeçalho -->
             <div class="flex items-center justify-between mb-4">
+                <!-- Botão Voltar -->
+                <a href="{{ route('veiculos.index') }}" class="btn bg-gray-300 hover:bg-gray-400 btn-sm flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Voltar
+                </a>
                 <h2 class="text-xl font-bold text-gray-800">{{ $viagem->nome_viagem }}</h2>
                 <div class="flex gap-2">
                     <a href="{{ route('viagens.edit', $viagem->id) }}" class="btn btn-sm btn-ghost p-1">
