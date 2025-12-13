@@ -15,11 +15,25 @@ class ViagemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $viagens = Viagem::latest()->get();
-        return view('viagens.index',['viagens' => $viagens]);
+        $viagens = Viagem::with(['motoristas', 'veiculo'])
+        ->when($request->search, function ($query) use ($request) 
+        {
+            $search = $request->search;
+
+            $query->whereHas('motoristas', function ($q) use ($search) {
+                $q->where('nome', 'like', "%{$search}%");
+            })
+            ->orWhereHas('veiculo', function ($q) use ($search) {
+                $q->where('modelo', 'like', "%{$search}%");
+            });
+        })
+        ->latest()
+        ->paginate(10)
+        ->withQueryString();
+
+        return view('viagens.index', compact('viagens'));
     }
 
     /**
@@ -54,7 +68,7 @@ class ViagemController extends Controller
     {
         //
         $viagem = Viagem::with('motoristas')->findOrFail($id);
-        
+
         return view('viagens.show', ['viagem' => $viagem]);
     }
 

@@ -75,12 +75,15 @@
                 </label>
 
                 <input 
-                    type="number" 
+                    type="number"
                     name="km_inicial"
-                    maxlength="100"
-                    placeholder="Insira o km inicial do início da viagem"
+                    placeholder="Ex: 123456"
                     class="input input-bordered w-full"
                     required
+                    min="0"
+                    max="99999"
+                    pattern="[0-9]*"
+                    step="1"
                     value="{{ old('km_inicial') }}"
                 />
 
@@ -149,7 +152,11 @@
             <!-- Botões -->
             <div class="flex justify-end gap-3 mt-6">
                 <button type="submit" class="btn btn-primary">Adicionar viagem</button>
-                <a href="{{ route('viagens.index') }}" class="btn bg-red-500">Cancelar</a>
+                <a href="{{ route('viagens.index') }}" class="btn bg-red-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </a>
             </div>
 
         </form>

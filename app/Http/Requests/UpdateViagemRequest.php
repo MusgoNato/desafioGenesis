@@ -25,8 +25,8 @@ class UpdateViagemRequest extends FormRequest
             //
             'nome_viagem' => 'required|string|max:100',
             'veiculo_id' => 'nullable|exists:veiculos,id',
-            'km_inicial' => 'required|numeric',
-            'km_final' => 'required|numeric|gte:km_inicial',
+            'km_inicial' => 'required|integer|min:0|max:99999',
+            'km_final' => 'required|integer|min:0|max:99999|gte:km_inicial',
             'inicio_viagem' => 'required|date_format:Y-m-d\TH:i',
             'fim_viagem' => 'required|date_format:Y-m-d\TH:i|after_or_equal:inicio_viagem',
             'motoristas' => 'nullable|array',

@@ -12,11 +12,23 @@ class VeiculoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
         //
-        $veiculos = Veiculo::latest()->get();
-        return view('veiculos.index', ['veiculos' => $veiculos]);
+        $search = $request->input('search');
+
+        $veiculos = Veiculo::when($search, function ($query, $search) 
+        {
+                return $query->where('modelo', 'like', "%{$search}%")
+                            ->orWhere('placa', 'like', "%{$search}%")
+                            ->orWhere('renavam', 'like', "%{$search}%")
+                            ->orWhere('ano', 'like', "%{$search}%");
+            })
+            ->latest()
+            ->paginate(2)
+            ->withQueryString();
+
+        return view('veiculos.index', compact('veiculos'));
     }
 
     /**

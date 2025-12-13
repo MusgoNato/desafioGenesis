@@ -11,11 +11,21 @@ class MotoristaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $motoristas = Motorista::latest()->get();
-        return view('motoristas.index', ['motoristas' => $motoristas]);
+        $search = $request->input('search');
+
+        $motoristas = Motorista::when($search, function ($query, $search)
+        {
+            return $query->where('nome', 'like', "%{$search}%")
+            ->orWhere('numero_cnh', 'like', "%{$search}%");
+        })
+        ->orderBy('nome')
+        ->paginate(2)
+        ->withQueryString();
+
+        return view('motoristas.index', compact('motoristas'));
     }
 
     /**

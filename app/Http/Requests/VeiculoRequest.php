@@ -25,7 +25,7 @@ class VeiculoRequest extends FormRequest
             'modelo' => 'required|string|max:255',
             'ano' => 'required|integer|digits:4|min:1900|max:2099',
             'data_aquisicao' => 'required|date',
-            'kms_rodados' => 'required|integer|min:0',
+            'kms_rodados' => 'required|integer|min:0|max:99999',
             'renavam' => 'required|digits:11|unique:veiculos,renavam',
             'placa' => [
                 'required',
